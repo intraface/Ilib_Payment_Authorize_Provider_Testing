@@ -32,19 +32,19 @@ class Ilib_Payment_Authorize_Provider_Testing_Postprocess extends Ilib_Payment_A
     {    
         parent::__construct($merchant, $verification_key, $get, $post, $session, $payment_target);
         
-        $this->amount = $get['amount'];
-        $this->order_number = $get['order_number'];
-        $this->currency = $get['currency'];
+        $this->amount = $post['amount'];
+        $this->order_number = $post['order_number'];
+        $this->currency = $post['currency'];
         
-        if($get['status'] != '000') {
-            $this->transaction_status = $get['status'];
+        if($post['status'] != '000') {
+            $this->transaction_status = $post['status'];
             $this->transaction_number = 0;
-            $this->pbs_status = $get['pbs_status'];
+            $this->pbs_status = $post['pbs_status'];
         }
         else {
             $this->pbs_status = '000'; 
             $this->transaction_status = '000';
-            $this->transaction_number = $get['transaction_number'];
+            $this->transaction_number = $post['transaction_number'];
         }
         
     } 

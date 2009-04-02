@@ -44,13 +44,18 @@ class Ilib_Payment_Authorize_Provider_Testing_Form extends Ilib_Payment_Authoriz
     public function getHiddenFields()
     {
         
+        /**
+         * @todo Here we create the error url from base url (errorpage)
+         */
+        $error_url = $this->errorpage.'/input?error=1';
+        
         return '<input type="hidden" name="currency" value="'.$this->currency.'" />' .
                 '<input type="hidden" name="merchant" value="'.$this->merchant.'" />' .
                 '<input type="hidden" name="order_number" value="'.$this->order_number.'" />' .
                 '<input type="hidden" name="amount" value="'.$this->amount.'" />' .
                 '<input type="hidden" name="session_id" value="'.session_id().'" />' .
                 '<input type="hidden" name="okpage" value="'.$this->okpage.'" />' .
-                '<input type="hidden" name="errorpage" value="'.$this->errorpage.'" />' .
+                '<input type="hidden" name="errorpage" value="'.$error_url.'" />' .
                 '<input type="hidden" name="resultpage" value="'.$this->resultpage.'" />';
     }
     
