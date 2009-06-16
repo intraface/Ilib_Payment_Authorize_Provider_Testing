@@ -52,7 +52,10 @@ class Ilib_Payment_Authorize_Provider_Testing_Prepare extends Ilib_Payment_Autho
      */
     public function getHiddenFields() 
     {
-        return '';
+        return '<input type="hidden" name="order_identifier" value="'.$this->order_identifier.'" />' .
+           '<input type="hidden" name="order_id" value="'.$this->order_number.'" />'.
+           '<input type="hidden" name="amount" value="'.$this->amount.'" />'.
+           '<input type="hidden" name="currency" value="'.$this->currency.'" />';
     }
     
     /**
