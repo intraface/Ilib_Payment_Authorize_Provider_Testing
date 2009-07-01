@@ -47,7 +47,7 @@ class Ilib_Payment_Authorize_Provider_Testing_Form extends Ilib_Payment_Authoriz
         /**
          * @todo Here we create the error url from base url (errorpage)
          */
-        $error_url = $this->errorpage.'/input?error=1';
+        $error_url = $this->errorpage.'/postform?error=1';
         
         return '<input type="hidden" name="currency" value="'.$this->currency.'" />' .
                 '<input type="hidden" name="merchant" value="'.$this->merchant.'" />' .
@@ -131,9 +131,8 @@ class Ilib_Payment_Authorize_Provider_Testing_Form extends Ilib_Payment_Authoriz
      */
     public function getErrorMessage()
     {
-        if(isset($this->get_vars['errorcode'])) {
-            $errorcodes = Ilib_Payment_Authorize_Provider_Dandomain_ErrorMessage::getErrorCodes();
-            return $errorcodes[$this->get_vars['errorcode']];
+        if(isset($this->get_vars['error'])) {
+            return 'An error occured. Please try again';
         }
         
         return '';
