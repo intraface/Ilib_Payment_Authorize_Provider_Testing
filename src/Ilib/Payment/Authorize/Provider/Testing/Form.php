@@ -108,24 +108,6 @@ class Ilib_Payment_Authorize_Provider_Testing_Form extends Ilib_Payment_Authoriz
     }
     
     /**
-     * return the currency
-     * @return string
-     */
-    public function getCurrency()
-    {
-        return $this->currency;
-    }
-    
-    /**
-     * Returns the amount 
-     * @return float
-     */
-    public function getAmount()
-    {
-        return $this->amount;
-    }
-    
-    /**
      * Returns errore message if is set
      * @return string
      */
