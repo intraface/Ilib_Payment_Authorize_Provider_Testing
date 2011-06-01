@@ -26,7 +26,7 @@ class Ilib_Payment_Authorize_Provider_Testing_PaymentProcess extends Ilib_Paymen
         $client->AddPostData('order_number', $input['order_number']);
         $client->AddPostData('merchant', $input['merchant']);
         $client->AddPostData('currency', $input['currency']);
-        
+
         if (empty($input['card_number']) || empty($input['security_number'])) {
             $client->AddPostData('pbs_status', '118');
             $client->AddPostData('status', '001');
@@ -41,6 +41,7 @@ class Ilib_Payment_Authorize_Provider_Testing_PaymentProcess extends Ilib_Paymen
             $return = $input['okpage'];
         }
         $request = $client->sendRequest();
+
         if (PEAR::isError($request)) {
             throw new Exception('Error in post reguest: '.$request->getUserInfo());
         }
