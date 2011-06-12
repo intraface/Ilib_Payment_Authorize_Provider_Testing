@@ -49,7 +49,7 @@ class Ilib_Payment_Authorize_Provider_Testing_PaymentProcess extends Ilib_Paymen
         $this->http_response_body = $client->getResponseBody();
 
         if ($client->getResponseCode() != 200) { // 200 is SUCCESS
-            throw new Exception('Error in processing the order. We got this message: '. $this->http_response_body);
+            throw new Exception('Error in processing the order. We got ' . $client->getResponseCode() . ' and this message: '. $this->http_response_body);
         }
 
         return $return;
